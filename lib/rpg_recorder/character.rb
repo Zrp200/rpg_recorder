@@ -9,7 +9,7 @@ module RPGRecorder
 			@health <= 0 && not dead?
 		end
 		def initialize(classification, health = 1, equipment = {})
-			raise TypeError, "parameter classification must be a kind of Classification" unless classification.kind_of? Classification
+			raise TypeError, "parameter classification must be a kind of RPGRecorder::Class" unless class.kind_of? RPGRecorder::Class
 			@health, @equipment = health, equipment
 		end
 		def defend(base_damage, shield = nil) # Lessens damage taken at expense of armor durability
