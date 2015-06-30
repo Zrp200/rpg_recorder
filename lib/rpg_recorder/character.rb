@@ -1,3 +1,4 @@
+require "rpg_recorder/class"
 module RPGRecorder
 	class Character
 		attr_accessor :health, :equipment
@@ -7,7 +8,8 @@ module RPGRecorder
 		def unconscious?
 			@health <= 0 && not dead?
 		end
-		def initialize(health = 1, equipment = {})
+		def initialize(classification, health = 1, equipment = {})
+			raise TypeError, "parameter classification must be a kind of Classification" unless classification.kind_of? Classification
 			@health, @equipment = health, equipment
 		end
 		def defend(base_damage, shield = nil) # Lessens damage taken at expense of armor durability
