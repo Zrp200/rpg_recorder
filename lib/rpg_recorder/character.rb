@@ -1,6 +1,6 @@
 module RPGRecorder
 	class Character
-		attr_accessor :health, equipment
+		attr_accessor :health, :equipment
 		def dead?
 			@health <= -1
 		end
